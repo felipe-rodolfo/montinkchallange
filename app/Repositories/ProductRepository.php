@@ -3,10 +3,16 @@
 namespace App\Repositories;
 
 use App\Models\product;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
 class ProductRepository
 {
+    public function products(): Collection
+    {
+        return product::with('stocks')->get();
+    }
+
     public function create(array $data): Product
     {
         return DB::transaction(function () use ($data) {

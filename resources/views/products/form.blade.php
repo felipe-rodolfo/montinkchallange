@@ -3,7 +3,8 @@
 @section('content')
 <div class="container">
     <h2>{{ isset($product) ? 'Editar Produto' : 'Cadastrar Produto' }}</h2>
-
+    <a class="btn btn-link" href="{{ route('products.index') }}">Listar produtos</a>
+    <hr>
     @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}

@@ -10,6 +10,14 @@ class ProductController extends Controller
 {
     public function __construct(protected ProductService $service) {}
 
+    public function index()
+    {
+        $products = $this->service->all();
+        return view('products.index', [
+            'products' => $products,
+        ]);
+    }
+
     public function create()
     {
         return view('products.form', [
