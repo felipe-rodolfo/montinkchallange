@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Services\CartService;
+use App\Services\CheckoutService;
 use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
 {
-    public function __construct(protected CartService $cart) {}
+    public function __construct(protected CartService $cart, protected CheckoutService $checkout) {}
 
     public function index()
     {
@@ -23,9 +24,15 @@ class CheckoutController extends Controller
     {
         $request->validate([
             'cep' => 'required|regex:/^\d{5}-?\d{3}$/',
-            'endereco' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
         ]);
 
-        return redirect()->route('checkout.index')->with('success', 'Pedido finalizado!');
+        $this->checkout->finalizeOrder(
+            $request->cep,
+            $request->address,
+            $request->coupon
+        );
+
+        return redirect()->route('products.index')->with('success', 'Pedido finalizado!');
     }
 }
