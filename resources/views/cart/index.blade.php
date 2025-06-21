@@ -39,10 +39,11 @@
                 @endforeach
             </tbody>
         </table>
-
+        
         <p><strong>Subtotal:</strong> R$ {{ number_format($subtotal, 2, ',', '.') }}</p>
         <p><strong>Frete:</strong> R$ {{ number_format($shipping, 2, ',', '.') }}</p>
         <p><strong>Total:</strong> R$ {{ number_format($total, 2, ',', '.') }}</p>
+        <a href="{{ route('checkout.index') }}" class="btn btn-success mb-2">Finalizar pedido</a>
     @endif
 </div>
 @endsection
