@@ -2,10 +2,11 @@
 
 namespace App\Services;
 
+use App\Mail\OrderConfirmed;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Coupon;
-use App\Mail\OrderConfirmed;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 

@@ -17,3 +17,5 @@ Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remov
 
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
 Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
+
+Route::post('/webhook/order-status', [\App\Http\Controllers\WebhookController::class, 'updateStatus']);
