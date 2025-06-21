@@ -14,8 +14,13 @@
 
         <div class="mb-3">
             <label for="endereco" class="form-label">Endereço</label>
-            <input type="text" name="endereco" id="endereco" class="form-control" required>
+            <input type="text" name="address" id="endereco" class="form-control" required>
         </div>
+
+        <div class="mb-3">
+            <label for="cupom" class="form-label">Cupom (opcional)</label>
+            <input type="text" name="coupons" id="cupom" class="form-control">
+        </div>        
 
         <h4>Resumo do Pedido</h4>
         <ul class="list-group mb-3">
@@ -30,6 +35,9 @@
         <p><strong>Subtotal:</strong> R$ {{ number_format($subtotal, 2, ',', '.') }}</p>
         <p><strong>Frete:</strong> R$ {{ number_format($shipping, 2, ',', '.') }}</p>
         <p><strong>Total:</strong> R$ {{ number_format($total, 2, ',', '.') }}</p>
+
+        <button type="submit" class="btn btn-success">Finalizar Pedido</button>
+
     </form>
 </div>
 

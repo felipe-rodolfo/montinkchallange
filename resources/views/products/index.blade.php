@@ -3,6 +3,13 @@
 @section('content')
 
     <div class="container">
+
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+        <a class="btn btn-primary mb-2" href="{{ route('products.create') }}">Adicionar produto</a>
         <table class="table">
             <thead>
                 <tr>

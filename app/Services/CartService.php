@@ -64,4 +64,9 @@ class CartService
 
         session(['cart' => $cart]);
     }
+
+    public function clear(): void
+    {
+        session()->forget('cart');
+    }
 }
